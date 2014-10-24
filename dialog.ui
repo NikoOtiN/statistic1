@@ -71,7 +71,7 @@
        <item>
         <widget class="QSpinBox" name="size_sb1">
          <property name="maximum">
-          <number>1000</number>
+          <number>100000</number>
          </property>
         </widget>
        </item>
@@ -117,7 +117,7 @@
        <item>
         <widget class="QSpinBox" name="size_sb2">
          <property name="maximum">
-          <number>1000</number>
+          <number>100000</number>
          </property>
         </widget>
        </item>

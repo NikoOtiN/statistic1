@@ -5,6 +5,7 @@
 #include <QTextEdit>
 #include "dialog.h"
 #include "func_hyp.h"
+#include "samplesplot.h"
 #include <QAction>
 #include <QMenuBar>
 #include <QToolBar>
@@ -20,6 +21,7 @@ private:
     Dialog *reqDialog;
     QAction *enterData;
     QToolBar *enterBar;
+    samplesPlot *gg;
 signals:
 
 public slots:

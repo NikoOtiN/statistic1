@@ -24,3 +24,10 @@ HEADERS  += dialog.h \
     func_hyp.h
 
 FORMS    += dialog.ui
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../Qwt-6.1.1/lib/ -lqwt
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../Qwt-6.1.1/lib/ -lqwtd
+else:unix: LIBS += -L$$PWD/../../../../../Qwt-6.1.1/lib/ -lqwt
+
+INCLUDEPATH += $$PWD/../../../../../Qwt-6.1.1/include
+DEPENDPATH += $$PWD/../../../../../Qwt-6.1.1/include

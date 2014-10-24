@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     enterBar->addAction(enterData);
     connect(enterData,SIGNAL(triggered()),this,SLOT(enterDataDialog()));
     connect(reqDialog,SIGNAL(accepted()),this,SLOT(check_gypothesys()));
-
+    //gg = new samplesPlot(this);
     setCentralWidget(reportTextEdit);
 }
 
@@ -58,6 +58,8 @@ void MainWindow::check_gypothesys()
     std::vector<double> v1,v2;
     v1 = create_sample(s1.size,s1.expected,s1.deviation);
     v2 = create_sample(s2.size,s2.expected,s2.deviation);
+
+    gg->addData(v1,s1.expected,s1.deviation);
 
     double mean_v1 = sample_mean(v1);
     double mean_v2 = sample_mean(v2);
