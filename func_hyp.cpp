@@ -9,10 +9,10 @@ void print_v(vector<double> v)
 }
 
 
-vector<double> create_sample(int size, double m, double g)
+vector<double> create_sample(int size, double m, double g,int i)
 {
-    unsigned seed1 = std::chrono::system_clock::now().time_since_epoch().count();
-    static std::default_random_engine generator(seed1);
+    unsigned seed1 = std::chrono::system_clock::now().time_since_epoch().count()*i;
+    std::default_random_engine generator(seed1);
     std::normal_distribution<double> distribution(m,g);
     vector<double> tmp;
     for(int i = 0; i <size; i++)
@@ -87,12 +87,9 @@ double quantile(double level)
 double t_test(double x,double y,double s1, double s2, int m, int n)
 {
     double s_midle = ((m-1)*s1+(n-1)*s2)/(m+n-2);
-    cout << "s_midle" << s_midle << endl;
-    double t = (x-y)/sqrt(s_midle);
-    double s = t*sqrt(m*n/m+n);
-    cout << "s" << s << endl;
-
-    return abs(s);
+    double S = sqrt(s_midle)*sqrt(1.0/m+1.0/n);
+    double t = (x-y)/S;
+    return abs(t);
 }
 
 double t_test_cr(int v, double level)
